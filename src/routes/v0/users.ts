@@ -28,7 +28,7 @@ router.post('/', [verifytoken], (req: Request, res: Response) => {
     responseAndLogger(
       res,
       `It is necessary to indicate the parameters 'firstName' and 'lastName' for the creation of a user`,
-      400
+      400,
     );
   }
 });
