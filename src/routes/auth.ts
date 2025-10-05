@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { sign } from 'jsonwebtoken';
+import { sign, SignOptions } from 'jsonwebtoken';
 
 import Logins from '../entities/logins';
 import verifytoken from '../middlewares/verifytoken';
@@ -9,7 +9,7 @@ import { responseAndLogger } from '../logger';
 const router = Router();
 
 const secret = String(process.env.TOKEN_SECRET);
-const expiresIn = process.env.EXPIRES ? String(process.env.EXPIRES) : '15m';
+const expiresIn = (process.env.EXPIRES ? String(process.env.EXPIRES) : '15m') as SignOptions['expiresIn'];
 
 router.post('/login', (req: Request, res: Response) => {
   const username = String(req.body.username);
