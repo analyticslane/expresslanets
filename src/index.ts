@@ -1,6 +1,7 @@
 import 'dotenv/config';
-import datasource from './datasource';
-import logger from './logger';
+
+import datasource from './config/datasource';
+import logger from './config/logger';
 import middleWares from './middlewares';
 import router from './routes';
 import Server from './server';

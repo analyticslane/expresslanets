@@ -3,14 +3,53 @@ import { sign, SignOptions } from 'jsonwebtoken';
 
 import Logins from '../entities/logins';
 import verifytoken from '../middlewares/verifytoken';
-import datasource from '../datasource';
-import { responseAndLogger } from '../logger';
+import datasource from '../config/datasource';
+import { responseAndLogger } from '../config/logger';
 
 const router = Router();
 
 const secret = String(process.env.TOKEN_SECRET);
 const expiresIn = (process.env.EXPIRES ? String(process.env.EXPIRES) : '15m') as SignOptions['expiresIn'];
 
+/**
+ * @openapi
+ * /auth/login:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     summary: Login
+ *     description: Login
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 token:
+ *                   type: string
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ */
 router.post('/login', (req: Request, res: Response) => {
   const username = String(req.body.username);
   const password = String(req.body.password);
@@ -34,10 +73,81 @@ router.post('/login', (req: Request, res: Response) => {
     .catch(() => responseAndLogger(res, 'Invalid user', 400));
 });
 
+/**
+ * @openapi
+ * /auth/info:
+ *   get:
+ *     tags:
+ *       - Auth
+ *     summary: Get info
+ *     description: Get info
+ *     responses:
+ *       200:
+ *         description: Info
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                 username:
+ *                   type: string
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ */
 router.get('/info', [verifytoken], (_req: Request, res: Response) => {
   res.send(res.locals.payload);
 });
 
+/**
+ * @openapi
+ * /auth/register:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     summary: Register
+ *     description: Register
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: User
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                 username:
+ *                   type: string
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ */
 router.post('/register', (req: Request, res: Response) => {
   const username = String(req.body.username);
   const password = String(req.body.password);

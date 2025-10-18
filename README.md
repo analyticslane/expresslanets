@@ -14,8 +14,12 @@ Se han publicado 10 entregas de la serie en las que se explicó todos los pasos 
 9. [Incluir un certificado en Express para servir el API mediante HTTPS](https://www.analyticslane.com/2022/12/07/incluir-un-certificado-en-express-para-servir-el-api-mediante-https-9a-parte-de-creacion-de-una-api-rest-con-express-y-typescript/)
 10. [Ejecutar la aplicación en producción con PM2](https://www.analyticslane.com/2022/12/14/ejecutar-la-aplicacion-en-produccion-con-pm2-10a-parte-de-creacion-de-una-api-rest-con-express-y-typescript/)
 
+## Documentar tu API de Express con TypeScript usando OpenAPI 
+Se ha añadido soporte para **documentar la API con Swagger (OpenAPI 3.0)**, permitiendo generar documentación automática y una interfaz interactiva para probar los endpoints.
+Puedes seguir todos los pasos de configuración en la entrada del blog: [**Documentar tu API de Express con TypeScript usando OpenAPI (Swagger)**](https://www.analyticslane.com/2025/10/21/documentar-tu-api-de-express-con-typescript-usando-openapi-swagger/)
+
 ## Descargo de responsabilidad
-Copyright (C) 2022 Daniel Rodríguez Pérez
+Copyright (C) 2022-2025 Daniel Rodríguez Pérez
 
 Este programa es software libre: usted puede redistribuirlo y/o modificarlo conforme a los términos de la Licencia Pública General de GNU publicada por la Fundación para el Software Libre, ya sea la versión 3 de esta Licencia o (a su elección) cualquier versión posterior.
 

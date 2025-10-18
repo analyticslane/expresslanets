@@ -3,7 +3,7 @@ import { json } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-import logger from '../logger';
+import logger from '../config/logger';
 
 const middleWares = [
   cors(),

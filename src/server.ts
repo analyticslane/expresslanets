@@ -2,7 +2,13 @@ import express, { Application, Router, RequestHandler } from 'express';
 import * as fs from 'fs';
 import * as http from 'http';
 import * as https from 'https';
-import logger from './logger';
+
+import swaggerUi from 'swagger-ui-express';
+
+import logger from './config/logger';
+import { swaggerSpec } from './config/swagger';
+
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 interface ServerConfiguration {
   port?: number;
@@ -18,6 +24,14 @@ class Server {
   constructor(serverConf: ServerConfiguration) {
     this._app = express();
     this._port = serverConf.port || 3000;
+
+    if (NODE_ENV === 'development') {
+      this._app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+      this._app.get('/api-docs.json', (_req, res) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.send(swaggerSpec);
+      });
+    }
 
     if (serverConf.middleWares) {
       this._middlewares(serverConf.middleWares);
