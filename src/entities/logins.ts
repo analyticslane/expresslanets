@@ -6,10 +6,10 @@ export default class Logins {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ type: 'varchar' })
   username: string;
 
-  @Column()
+  @Column({ type: 'varchar' })
   password: string;
 
   @BeforeInsert()

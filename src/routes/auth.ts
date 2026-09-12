@@ -1,10 +1,13 @@
 import { Router, Request, Response } from 'express';
-import { sign, SignOptions } from 'jsonwebtoken';
+import jsonwebtoken from 'jsonwebtoken';
+import type { SignOptions } from 'jsonwebtoken';
 
-import Logins from '../entities/logins';
-import verifytoken from '../middlewares/verifytoken';
-import datasource from '../config/datasource';
-import { responseAndLogger } from '../config/logger';
+const { sign } = jsonwebtoken;
+
+import Logins from '../entities/logins.js';
+import verifytoken from '../middlewares/verifytoken.js';
+import datasource from '../config/datasource.js';
+import { responseAndLogger } from '../config/logger.js';
 
 const router = Router();
 

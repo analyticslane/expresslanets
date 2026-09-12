@@ -1,5 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { verify } from 'jsonwebtoken';
+import jsonwebtoken from 'jsonwebtoken';
+
+const { verify } = jsonwebtoken;
 
 const secret = String(process.env.TOKEN_SECRET);
 

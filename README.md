@@ -18,8 +18,13 @@ Se han publicado 10 entregas de la serie en las que se explicó todos los pasos 
 Se ha añadido soporte para **documentar la API con Swagger (OpenAPI 3.0)**, permitiendo generar documentación automática y una interfaz interactiva para probar los endpoints.
 Puedes seguir todos los pasos de configuración en la entrada del blog: [**Documentar tu API de Express con TypeScript usando OpenAPI (Swagger)**](https://www.analyticslane.com/2025/10/21/documentar-tu-api-de-express-con-typescript-usando-openapi-swagger/)
 
+## Migración de CommonJS a ES Modules
+El paquete se ha actualizado a **ES Modules** para modernizar su configuración y facilitar su uso, siguiendo las recomendaciones explicadas en [“Por qué migrar tus proyectos TypeScript a ES Modules en 2026”](https://www.analyticslane.com/2026/09/17/por-que-migrar-tus-proyectos-typescript-a-es-modules-en-2026/).
+
+Los detalles del proceso de migración se pueden consultar en [“Actualizar ExpressLanets a ES Modules con tsx y Vitest”](https://www.analyticslane.com/2026/09/24/actualizar-expresslanets-a-es-modules-con-tsx-y-vitest/).
+
 ## Descargo de responsabilidad
-Copyright (C) 2022-2025 Daniel Rodríguez Pérez
+Copyright (C) 2022-2026 Daniel Rodríguez Pérez
 
 Este programa es software libre: usted puede redistribuirlo y/o modificarlo conforme a los términos de la Licencia Pública General de GNU publicada por la Fundación para el Software Libre, ya sea la versión 3 de esta Licencia o (a su elección) cualquier versión posterior.
 

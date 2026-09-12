@@ -1,9 +1,9 @@
 import { Router, Request, Response } from 'express';
 
-import User from '../../entities/user';
-import verifytoken from '../../middlewares/verifytoken';
-import datasource from '../../config/datasource';
-import { responseAndLogger } from '../../config/logger';
+import User from '../../entities/user.js';
+import verifytoken from '../../middlewares/verifytoken.js';
+import datasource from '../../config/datasource.js';
+import { responseAndLogger } from '../../config/logger.js';
 
 const router = Router();
 

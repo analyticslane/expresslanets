@@ -1,10 +1,10 @@
 import 'dotenv/config';
 
-import datasource from './config/datasource';
-import logger from './config/logger';
-import middleWares from './middlewares';
-import router from './routes';
-import Server from './server';
+import datasource from './config/datasource.js';
+import logger from './config/logger.js';
+import middleWares from './middlewares/index.js';
+import router from './routes/index.js';
+import Server from './server.js';
 
 // Configuración del puerto
 const PORT: number = Number(process.env.PORT) || 3000;

@@ -1,13 +1,16 @@
 import * as path from 'path';
+import { fileURLToPath } from 'url';
 import { DataSource } from 'typeorm';
 
+const currentFile = fileURLToPath(import.meta.url);
+
 let entities = ['dist/entities/**/*.js'];
-if (path.extname(__filename) === '.ts') {
-  entities = ['src/entities/**/*.ts'];
+if (path.extname(currentFile) === '.ts') {
+  entities = ['src/entities/**/!(*.test).ts'];
 }
 
 const datasource = new DataSource({
-  type: 'sqlite',
+  type: 'better-sqlite3',
   database: 'database.db',
   entities,
   synchronize: true,

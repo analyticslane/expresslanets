@@ -5,8 +5,8 @@ import * as https from 'https';
 
 import swaggerUi from 'swagger-ui-express';
 
-import logger from './config/logger';
-import { swaggerSpec } from './config/swagger';
+import logger from './config/logger.js';
+import { swaggerSpec } from './config/swagger.js';
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 

@@ -3,6 +3,8 @@ logs
 
 # Builds
 dist
+coverage
+database.db
 
 # Node
 node_modules

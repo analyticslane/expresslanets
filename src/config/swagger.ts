@@ -1,13 +1,13 @@
 import swaggerJsdoc from 'swagger-jsdoc';
 
-import { version } from '../../package.json';
+import pkg from '../../package.json' with { type: 'json' };
 
 const swaggerOptions: swaggerJsdoc.Options = {
   definition: {
     openapi: '3.0.0',
     info: {
       title: 'API de ejemplo con Express + TypeScript',
-      version: version,
+      version: pkg.version,
       description: 'Documentación generada automáticamente con Swagger',
     },
     servers: [
